@@ -12,7 +12,8 @@ export default function PasswordGenerator(){
 
   
   // Setting initial App states
-    let [stateGeneratedPassword, setStateGeneratedPassword] = useState('Yours generated password will be shown here!');
+    let defaultPasswordPlaceholderValue = 'Yours generated password will be shown here!'
+    let [stateGeneratedPassword, setStateGeneratedPassword] = useState(defaultPasswordPlaceholderValue);
     // console.log(stateGeneratedPassword)
     let [statePasswordLength, updateStatePasswordLength] = useState(8); //initial value is 8
     let [stateCheckBoxesPasswordIncludes, setStateCheckBoxesPasswordIncludes] = useState({
@@ -129,6 +130,8 @@ export default function PasswordGenerator(){
             )
           );
             
+          setStateGeneratedPassword(defaultPasswordPlaceholderValue);
+
           updateStateSuccessMessage(previousState =>(
             {
               className : previousState.className.replace('displayNone', '') + ' displayNone',
